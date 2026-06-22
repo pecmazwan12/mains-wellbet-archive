@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吉祥坊 · 简明指引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f7f8;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.65;
+      color: #1e1e2a;
+    }
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.8rem 1.6rem 4rem;
+    }
+    /* 主视觉区域 */
+    .hero {
+      margin-bottom: 3rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #0f0f1a;
+      margin-bottom: 0.75rem;
+    }
+    .hero .subhead {
+      font-size: 1rem;
+      color: #5b5b6b;
+      border-left: 3px solid #b1b1c3;
+      padding-left: 1rem;
+      max-width: 80%;
+    }
+    /* 卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #12121e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 18px;
+      background: #b7b7cf;
+      border-radius: 4px;
+      margin-right: 0.2rem;
+    }
+    .card p, .card li {
+      font-size: 0.96rem;
+      color: #2c2c3c;
+      margin-bottom: 0.6rem;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0.25rem;
+    }
+    .card ul li {
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .card ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0.2rem;
+      color: #9b9bb0;
+      font-weight: 700;
+    }
+    /* 用途卡片中的小标签 */
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0.4rem;
+    }
+    .tag {
+      background: #efeff2;
+      color: #2b2b3e;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    /* 链接自然嵌入段落 */
+    .inline-link {
+      color: #2e2e4a;
+      text-decoration: none;
+      border-bottom: 1px solid #c7c7db;
+      transition: border-color 0.15s, color 0.15s;
+      font-weight: 450;
+    }
+    .inline-link:hover {
+      color: #12121e;
+      border-bottom-color: #5a5a7a;
+    }
+    /* FAQ 摘要 / 提示条 */
+    .note-bar {
+      background: #ececf2;
+      border-radius: 60px;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.9rem;
+      color: #2b2b3e;
+      margin: 2.4rem 0 1.2rem;
+      display: inline-block;
+      letter-spacing: 0.01em;
+    }
+    .faq-mini {
+      margin-top: 2rem;
+    }
+    .faq-mini details {
+      border-top: 1px solid #e1e1ea;
+      padding: 1rem 0;
+    }
+    .faq-mini details:last-of-type {
+      border-bottom: 1px solid #e1e1ea;
+    }
+    .faq-mini summary {
+      font-weight: 450;
+      cursor: pointer;
+      color: #1a1a2c;
+      font-size: 0.96rem;
+      padding: 0.25rem 0;
+    }
+    .faq-mini summary::marker {
+      color: #9090a8;
+    }
+    .faq-mini details p {
+      margin-top: 0.6rem;
+      padding-left: 0.4rem;
+      color: #3d3d52;
+      font-size: 0.9rem;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e3e3ec;
+      margin: 2.4rem 0 1.8rem;
+      width: 100%;
+    }
+    .footer-note {
+      font-size: 0.82rem;
+      color: #7d7d92;
+      margin-top: 3rem;
+      text-align: center;
+      border-top: 1px solid #eaeaf0;
+      padding-top: 1.8rem;
+    }
+    a[href*="mains-wellbet"] {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid #b1b1c6;
+    }
+    a[href*="mains-wellbet"]:hover {
+      border-bottom-color: #2f2f4a;
+    }
+    /* 响应式 */
+    @media (max-width: 500px) {
+      .page-wrap {
+        padding: 1.8rem 1.2rem 3rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .subhead {
+        max-width: 100%;
+        font-size: 0.92rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      .card h2 {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero -->
+  <div class="hero">
+    <h1>吉祥坊 · 从零开始</h1>
+    <div class="subhead">一份安静的简明指南，有关访问、使用与日常提醒。</div>
+  </div>
+
+  <!-- 主视觉卡片：简明指南 -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>访问之前</h2>
+      <p>当你首次打算使用 <a href="https://mains-wellbet.com" class="inline-link">吉祥坊</a> 时，可以花两分钟了解它的基本构成。它不是一个需要复杂注册的工具，而是一个围绕信息与服务的轻量平台。</p>
+      <p>以下三个步骤能帮你快速进入节奏：</p>
+      <ul>
+        <li>确认网络环境稳定，建议使用常用浏览器</li>
+        <li>直接打开主站链接，不需要额外下载或插件</li>
+        <li>初次浏览时留意页面布局，功能区域通常清晰划分</li>
+      </ul>
+      <div class="tag-group">
+        <span class="tag">浏览器</span>
+        <span class="tag">直接访问</span>
+        <span class="tag">无需注册</span>
+      </div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="card">
+      <h2>常见用途</h2>
+      <p>从日常信息查阅到特定内容获取，<a href="https://mains-wellbet.com" class="inline-link">吉祥坊</a> 覆盖了几个主要方向：</p>
+      <ul>
+        <li><strong>资讯浏览</strong> — 了解动态、公告或整理后的信息</li>
+        <li><strong>交互区域</strong> — 部分板块提供轻量互动，适合短暂停留</li>
+        <li><strong>资源索引</strong> — 内容分类清晰，可快速定位感兴趣的部分</li>
+      </ul>
+      <p style="margin-top: 0.8rem;">这些用途并不复杂，但足以应对多数日常需求。不需要预先学习任何操作逻辑。</p>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="card">
+      <h2>适合什么样的人</h2>
+      <p>这个平台的气质偏向直接与克制，因此以下几类人群更容易找到节奏：</p>
+      <ul>
+        <li>偏好简洁界面、不喜欢过多弹窗或跳转的人</li>
+        <li>偶尔需要获取特定板块内容、但不希望频繁切换应用的人</li>
+        <li>对网络工具保持基本审慎、习惯自行判断信息的人</li>
+      </ul>
+      <p>当然，任何人都可以尝试，只不过安静的使用习惯会让体验更顺畅。</p>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 + 访问提醒 -->
+  <p style="margin-bottom: 1.2rem; font-size: 0.96rem; color: #2c2c3c;">
+    如果你正在寻找一个不喧哗的起点，不妨直接试试 <a href="https://mains-wellbet.com" class="inline-link">吉祥坊</a>。 
+    它不会主动推送大量通知，也不会在第一次访问时要求你做出选择。保持浏览器干净、注意力集中，效果会更好。
+  </p>
+  <div class="note-bar">⏳ 提醒：任何平台都值得你保持基本的信息辨别力。</div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <details>
+      <summary>打开后页面显示不完整怎么办？</summary>
+      <p>先检查浏览器缩放比例，通常重置为 100% 即可。也可以尝试刷新或更换网络环境。极少数情况与缓存有关，清除后重试。</p>
+    </details>
+    <details>
+      <summary>是否需要注册或留下个人信息？</summary>
+      <p>浏览大部分内容不需要注册。个别互动区域可能会要求基础身份验证，但<a href="https://mains-wellbet.com" class="inline-link">吉祥坊</a> 整体上对隐私比较克制，不会主动索取多余信息。</p>
+    </details>
+    <details>
+      <summary>移动端和电脑端体验有区别吗？</summary>
+      <p>响应式设计使得手机和平板也能正常阅读，但部分信息密度较高的板块在宽屏上更容易浏览。根据你手边的设备自由选择即可。</p>
+    </details>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    <span>简明的页面，安静的访问。</span>
+  </div>
+
+</div>
+</body>
+</html>
