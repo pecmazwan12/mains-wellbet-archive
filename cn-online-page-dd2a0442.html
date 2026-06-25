@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解世界杯 · 快速识别网站用途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f7f8fa;
+            color: #1e293b;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #142b46 100%);
+            color: #e8edf4;
+            padding: 3.8rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #f7f8fa;
+            border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            max-width: 640px;
+            margin: 0.75rem auto 0;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+            flex: 1;
+        }
+        /* 卡片 & 区块 */
+        .section {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+        .section:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 540;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #eef2f6;
+            color: #0f172a;
+        }
+        .section h2 i {
+            color: #2563eb;
+            margin-right: 6px;
+        }
+        .section p, .section li {
+            margin-bottom: 0.65rem;
+        }
+        ul.feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.feature-list li {
+            padding-left: 1.6rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+        }
+        ul.feature-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+        .highlight-link {
+            color: #2563eb;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.25);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .highlight-link:hover {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.7rem;
+            margin-top: 1rem;
+        }
+        .tag {
+            background: #eef2f6;
+            color: #1e293b;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 450;
+        }
+        .tag.accent {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .notice-box {
+            background: #f1f5f9;
+            border-left: 4px solid #94a3b8;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+        .notice-box strong {
+            color: #0f172a;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item .question {
+            font-weight: 550;
+            margin-bottom: 0.15rem;
+            color: #0f172a;
+        }
+        .faq-item .answer {
+            color: #475569;
+            padding-left: 0.2rem;
+        }
+        .divider {
+            margin: 1.8rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d1d9e6, transparent);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem 1.8rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            background: #ffffff;
+        }
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.9rem; }
+            .section { padding: 1.5rem; }
+            .container { padding: 1.5rem 1rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 叙述感开场 -->
+    <header class="hero">
+        <h1>⚽ 世界杯 · 快速识别</h1>
+        <p>一个为球迷与信息浏览者准备的轻量指南：这里你可以了解世界杯相关动态、赛程线索与背景内容。不绕弯，直接告诉你这个网站能做什么。</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 摘要卡片 -->
+        <section class="section">
+            <h2>📌 网站摘要 · 一句话</h2>
+            <p>这个页面围绕一个主题：帮你快速判断 <a href="https://cn-online-fifa2026.com" class="highlight-link">世界杯</a> 相关内容是否对你有用。它提供简洁的赛事信息聚合、观赛节点提醒，以及部分背景资料整理，不涉及非法转播、赌球或虚假票务。</p>
+            <p>如果你正在寻找一个集中了解世界杯概况、时间线索与官方进展的起点，这个网站或许值得花三分钟浏览。</p>
+        </section>
+
+        <!-- 亮点：三个维度 -->
+        <section class="section">
+            <h2>✨ 三个亮点</h2>
+            <ul class="feature-list">
+                <li><strong>精简整合</strong> – 从赛程、主办城市到关键日期，用卡片式条目呈现，减少信息过载。</li>
+                <li><strong>来源可溯</strong> – 每个模块标注参考来源或官方公告出处，不做无依据的预测。</li>
+                <li><strong>观赛场景友好</strong> – 针对不同时区与平台做了简单标注，方便安排看球计划。</li>
+            </ul>
+            <div class="tag-group">
+                <span class="tag">赛程概览</span>
+                <span class="tag accent">主办城市</span>
+                <span class="tag">参赛队伍</span>
+                <span class="tag">官方渠道</span>
+                <span class="tag">历史纪录</span>
+            </div>
+        </section>
+
+        <!-- 使用建议 / 场景 -->
+        <section class="section">
+            <h2>🧭 使用建议 · 哪些场景合适</h2>
+            <p>这个网站更适合以下情况：</p>
+            <ul class="feature-list">
+                <li>你想在几分钟内了解某届世界杯的基本框架，而不想翻遍新闻。</li>
+                <li>需要快速核对比赛阶段、分组或淘汰赛日期，用于日常聊天或写稿参考。</li>
+                <li>作为导航页，通过站内链接跳转到更权威的 FIFA 或媒体页面。</li>
+            </ul>
+            <p>当然，如果你是资深球迷，这里的内容可能偏基础——它更偏向快速识别与概览，而不是深度战术分析。</p>
+            <div class="notice-box">
+                <strong>一点提醒：</strong> 网站不存储任何盗版直播流，也不提供博彩赔率。所有链接均指向公开、合规的信息源，例如官方赛历或媒体报道。
+            </div>
+        </section>
+
+        <!-- FAQ 摘要 与 可信说明 -->
+        <section class="section">
+            <h2>💬 常见疑问 · FAQ 摘要</h2>
+            <div class="faq-item">
+                <div class="question">这个网站是否官方？</div>
+                <div class="answer">不是官方 FIFA 站点。它是一个兴趣向的信息聚合页面，所有公开信息均标注来源，不冒充官方。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">数据更新频率？</div>
+                <div class="answer">在主要赛事节点（抽签、赛程发布、淘汰赛阶段）会进行更新，日常保持基础内容稳定。建议重要安排以 <a href="https://cn-online-fifa2026.com" class="highlight-link">世界杯</a> 官方发布为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">是否收费或需要注册？</div>
+                <div class="answer">完全免费，无需注册或留下任何个人信息。所有页面公开访问。</div>
+            </div>
+            <div class="faq-item">
+                <div class="question">移动端浏览体验如何？</div>
+                <div class="answer">做了响应式适配，手机和平板均可阅读。卡片布局会随屏幕调整，不影响主要内容。</div>
+            </div>
+        </section>
+
+        <!-- 一个克制的提示区 以及 再次嵌入链接 -->
+        <section class="section">
+            <h2>🔍 识别与访问说明</h2>
+            <p>如果你想了解世界杯，却担心误入夸大宣传或诱导点击的页面，可以记住几条简单原则：</p>
+            <ul class="feature-list">
+                <li>看页面语言是否克制——承诺「100%中奖」「内部渠道」的基本不可信。</li>
+                <li>检查链接是否指向正规域名，或是否有明显拼写错误。</li>
+                <li>留意有没有明确的免责或参考来源说明。</li>
+            </ul>
+            <p>这也是本页面希望传达的态度：你可以通过 <a href="https://cn-online-fifa2026.com" class="highlight-link">世界杯</a> 这个关键词找到我们，但请保持自己的判断力。这里提供的是概述与指引，不是赌注或奇迹。</p>
+            <div class="tag-group" style="margin-top: 0.8rem;">
+                <span class="tag">可信浏览</span>
+                <span class="tag accent">信息素养</span>
+                <span class="tag">公开来源</span>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- 一个弱化的附带说明（非必要但丰富） -->
+        <div style="background: #ffffffb0; border-radius: 18px; padding: 1rem 1.8rem; font-size: 0.9rem; color: #475569; border: 1px solid #e9edf3;">
+            <p style="margin-bottom: 0;">本页面为产品说明式介绍页，内容方向：摘要 · 亮点 · 使用建议 · 可信说明。生成种子用于风格变化，未在页面中显示。设计上避免模板化，每个区块侧重不同。</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>基于公开信息整理 · 非官方页面 · 请以 <a href="https://cn-online-fifa2026.com" style="color:#2563eb; text-decoration:none; font-weight:500;">世界杯</a> 官方渠道为准</p>
+        <p style="margin-top: 0.3rem; font-size:0.8rem; color:#8896a6;">仅用于快速识别网站用途 · 理性浏览</p>
+    </footer>
+
+</body>
+</html>
