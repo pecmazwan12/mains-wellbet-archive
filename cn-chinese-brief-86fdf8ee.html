@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 — 完整信息指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9d2 0%, #f6d5b3 40%, #ecb88a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 3rem;
+      line-height: 1.6;
+      color: #2e241c;
+    }
+
+    .page {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* 卡片容器 */
+    .card {
+      background: #fffcf8;
+      border-radius: 28px;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 12px 32px rgba(156, 98, 56, 0.12), 0 4px 10px rgba(0,0,0,0.03);
+      backdrop-filter: blur(2px);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card + .card {
+      margin-top: 2.2rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      background: linear-gradient(132deg, #ffefe3 0%, #fadcc6 100%);
+      border-radius: 32px;
+      padding: 4rem 2rem 3.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 10px 28px rgba(161, 100, 56, 0.10);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      color: #4b2c1a;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 680px;
+      margin: 0 auto 1.6rem;
+      color: #5f3f2a;
+      opacity: 0.9;
+    }
+
+    .hero .subnote {
+      background: #fffcf5;
+      display: inline-block;
+      padding: 0.4rem 1.6rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #7a583b;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    /* 区域标题 */
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 1.6rem;
+      color: #3e2a1b;
+      border-left: 6px solid #d6955a;
+      padding-left: 1.2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .feature-item {
+      background: #fdf6ef;
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem;
+      transition: transform 0.12s ease, background 0.15s;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-3px);
+      background: #f9ede2;
+    }
+
+    .feature-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #5b3b23;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      font-size: 0.96rem;
+      color: #4f3826;
+    }
+
+    /* 说明区 + 列表 */
+    .explain-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .explain-list li {
+      padding: 0.8rem 0 0.8rem 1.8rem;
+      position: relative;
+      border-bottom: 1px dashed #e7d6c4;
+    }
+
+    .explain-list li:last-child {
+      border-bottom: none;
+    }
+
+    .explain-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: #bf7d48;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .explain-list strong {
+      color: #55381f;
+    }
+
+    /* FAQ 摘要 */
+    .faq-block {
+      background: #fbf3ea;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #3f2a19;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #4d3827;
+      padding-left: 0.5rem;
+      border-left: 3px solid #dbaa7a;
+      padding-left: 1rem;
+      font-size: 0.98rem;
+    }
+
+    .faq-a a {
+      color: #935e2f;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 底部链接 */
+    .footer-links {
+      margin-top: 2.5rem;
+      text-align: center;
+      background: transparent;
+      box-shadow: none;
+      padding: 0.5rem 0 1rem;
+    }
+
+    .footer-links a {
+      display: inline-block;
+      background: #fffcf5;
+      padding: 0.6rem 2rem;
+      border-radius: 60px;
+      color: #543a27;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(130, 75, 35, 0.08);
+      border: 1px solid #f0dac8;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .footer-links a:hover {
+      background: #f6e7da;
+      box-shadow: 0 6px 16px rgba(130, 75, 35, 0.12);
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #6c5540;
+    }
+
+    .inline-link {
+      color: #854f25;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem 2rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 2.8rem 1rem 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero 区 -->
+    <header class="hero">
+      <h1>世界杯 · 赛事指南</h1>
+      <p>从历史经典到未来赛程，我们整理了一份清晰、实用的信息页，帮你快速了解世界杯的方方面面。</p>
+      <span class="subnote">⚽ 2026 年扩军 · 48 支球队 · 全新格局</span>
+    </header>
+
+    <!-- 优势区 · 特点 -->
+    <section class="card">
+      <h2 class="section-title">为什么世界杯值得关注</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <h3>全球盛会</h3>
+          <p>超过 200 个国家和地区参与预选赛，最终 48 支队伍站上正赛舞台，覆盖六大洲球迷。</p>
+        </div>
+        <div class="feature-item">
+          <h3>经典传承</h3>
+          <p>自 1930 年首届以来，世界杯已走过近百年，留下无数传奇比赛与难忘瞬间。</p>
+        </div>
+        <div class="feature-item">
+          <h3>多元文化</h3>
+          <p>每届主办国都会融入本地特色，从场馆设计到开幕式，呈现不同地域的足球文化。</p>
+        </div>
+        <div class="feature-item">
+          <h3>竞技巅峰</h3>
+          <p>球员在世界杯舞台展现最高水平的技术与战术，每届赛事都会诞生新的英雄故事。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 · 关键信息 -->
+    <section class="card">
+      <h2 class="section-title">赛事要点整理</h2>
+      <ul class="explain-list">
+        <li><strong>下一届世界杯</strong> 将由美国、加拿大、墨西哥联合主办，这也是首次由三个国家共同承办的 <a href="https://cn-chinese-fifa2026.com" class="inline-link">世界杯</a>。</li>
+        <li><strong>参赛规模</strong> 从 32 队扩军至 48 队，小组赛阶段将分为 16 个小组，每组 3 支球队。</li>
+        <li><strong>赛程跨度</strong> 通常在六月中旬至七月中旬举行，合计约 32 天，共 104 场比赛。</li>
+        <li><strong>资格分配</strong> 各大洲足联根据名额进行预选赛，竞争激烈程度不亚于正赛。</li>
+        <li><strong>历届之最</strong> 巴西以 5 次夺冠排名第一，德国、意大利各 4 次紧随其后。</li>
+      </ul>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="card faq-block">
+      <h2 class="section-title" style="border-left-color: #c48349;">常见问题摘要</h2>
+      <div class="faq-item">
+        <span class="faq-q">2026 年世界杯在哪里举行？</span>
+        <div class="faq-a">由美国、加拿大、墨西哥联合主办，分布在 16 座城市，这是第一次由三个国家共同举办的<a href="https://cn-chinese-fifa2026.com" class="inline-link">世界杯</a>。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">如何观看比赛直播？</span>
+        <div class="faq-a">通常情况下，国际足联会将转播权授予各地区电视台及流媒体平台。具体渠道可留意主办方正式公告，也可查阅<a href="https://cn-chinese-fifa2026.com" class="inline-link">世界杯</a>相关页面获取转播信息。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">世界杯吉祥物有什么意义？</span>
+        <div class="faq-a">每一届吉祥物都体现当地文化和足球元素，例如 2022 年 La'eeb 代表灵动与热情；2026 年吉祥物尚未公布，但通常会在赛前一年揭晓。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">我可以申请成为志愿者吗？</span>
+        <div class="faq-a">国际足联和主办国组委会会在赛前开放志愿者招募，通常需要年满 18 岁、具备基本外语能力，具体条件请参考官方发布的招募公告。</div>
+      </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+      <a href="https://cn-chinese-fifa2026.com">世界杯</a>
+      <div class="footer-note">本站提供综合性赛事参考，不涉及博彩或商业推广。<br>数据及赛程以国际足联官方最新公告为准。</div>
+    </div>
+  </div>
+</body>
+</html>
